@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Form</title>
 </head>
 <body>
   <h1>Buat Account Baru!</h1>
   <h2>Sign Up Form</h2>
-  <form action="./welcome.html">
+  <form action="./welcome.html" method="post">
     <label for="name">First Name</label>
-    <input type="text" name="firstname" id="">
-    <br>
+    <input type="text" name="firstname" id="firstname" required>
+    <br/><br/>
     <label for="last name">Last Name</label>
-    <input type="text" name="lastname" id="">
+    <input type="text" name="lastname" id="lastname" required>
     
-    <p>Gender</p>    
-    <input type="radio" id="css" name="gender" value="HTML">
-    <label for="css">Male</label><br>
-    <input type="radio" id="css" name="gender" value="CSS">
-    <label for="css">Female</label><br>
-    <input type="radio" id="javascript" name="gender" value="JavaScript">
-    <label for="javascript">Other</label>
+    <p>Gender</p>
+    <input type="radio" id="css" name="gender" value="HTML">
+    <label for="css">Male</label>
+    <br/>
+    <input type="radio" id="css" name="gender" value="CSS">
+    <label for="css">Female</label>
+    <br/>
+    <input type="radio" id="javascript" name="gender" value="JavaScript">
+    <label for="javascript">Other</label>
 
     <p>Nationality</p>
     <select name="nation" id="nation">
