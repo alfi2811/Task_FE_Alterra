@@ -9,13 +9,6 @@ body {
   justify-content: space-between;
 }
 
-.box-row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
 .box-red, .box-blue {
   width: 100px;
   height: 100px;
@@ -39,4 +32,5 @@ body {
   text-align: center;
   height: 300px;
   border-radius: 16px;
+  width: 100%;
 }
