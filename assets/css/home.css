@@ -16,8 +16,12 @@ p, h1, h4 {
 
 .nav-link {
   color: hsla(217, 58%, 23%, 1) !important;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.875em;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: #F47522 !important;
 }
 
 .navbar .logo-brand {

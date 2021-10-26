@@ -44,6 +44,8 @@ h3 {
   font-size: 20px;
 }
 
+select.form-control { -webkit-appearance: menulist; }
+
 .contact__content-form .btn {
   background-color: #F47522;
   color: white;
