@@ -17,49 +17,55 @@ function perkenalan() {
     asal
   )
 }
-
+// jawaban no 1b
 terdaftar = true;
 if (terdaftar) {
   console.log(nama + " terdaftar sebagai kegiatan kampus merdeka");
 }
 
-console.log("array - " + lengkap_arr[2])
 a = b;
 // nama = b;
+
+// jawaban no 1a
+console.log("array - " + lengkap_arr[2])
 
 // console.log("asal diakses = " + asal);
 console.log("a adalah = " + a);
 console.log("b adalah = " + b);
+
+// jawaban no 1c
 perkenalan();
 
+// jawaban no 2a
+// dikarenakan pada code yang belum diubah tersebut di baris 4 variabel terdaftar di inisiasikan false sehingga tidak masuk dalam persyaratan dalam if
 
-let bdays = ['10-17','05-19','20-19']
+// jawaban no 2b
+// nama = b error dikarenakan nama di inisiasikan sebagai variabel konstan sehingga valuenya tidak dapat diubah kembali
 
-for (let i = 0; i < bdays.length; i++) {
-  const element = bdays[i].replace("-", "/");
-  bdays[i] = element;
-}
+// jawaban no 2c
+// tidak karena pada baris 28 menyebabkan error dikarenakan memanggil variable asal yang merupakan variable local sehingga tidak dapat dipanggil diluar fungsinya.
 
-bdays.map(data => {        
-    return console.log(data)
-  })
+const foo = ['Budi', 'Sita', 'Ayu'];
+// jawaban no 3
+let c;
+[a, b, c] = foo;
+console.log(a,b,c);
 
-let arr = [1.5, 2.56, 5.1, 12.33]
-
-for (let i = 0; i < arr.length; i++) {  
-  arr[i] = Math.ceil(arr[i]);
-}
-
-arr.map(data => {        
-  return console.log(data)
-})
+let bdays = ['10-17', '05-19', '20-19']
+// jawaban no 4
+bdays = bdays.map((data) => (data.replace("-", "/")))
+console.log(bdays)
 
 let nilai1 = [1, 2, 3, 4, 5]
-let nilai2 = 0;
-nilai1.map(data => nilai2 += data )
+// jawaban no 5
+let reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log(nilai1.reduce(reducer));
 
-console.log(nilai2)
+let arr = [1.5, 2.56, 5.1, 12.33]
+// jawaban no 6
+arr = arr.map((data) => (Math.ceil(data)))
+console.log(arr)
 
-var filterValue = [-4,3,2,-21,1]
-filterValue = filterValue.filter(data => data > 0)
-console.log(filterValue)
+// var filterValue = [-4,3,2,-21,1]
+// filterValue = filterValue.filter(data => data > 0)
+// console.log(filterValue)
