@@ -37,7 +37,7 @@ console.log("b adalah = " + b);
 perkenalan();
 
 // jawaban no 2a
-// dikarenakan pada code yang belum diubah tersebut di baris 4 variabel terdaftar di inisiasikan false sehingga tidak masuk dalam persyaratan dalam if
+// dikarenakan pada code yang belum diubah tersebut di baris 4 variabel terdaftar di inisiasikan false sehingga tidak masuk dalam persyaratan dalam if sehingga perintah yang didalam if tidak dijalankan
 
 // jawaban no 2b
 // nama = b error dikarenakan nama di inisiasikan sebagai variabel konstan sehingga valuenya tidak dapat diubah kembali
@@ -56,16 +56,12 @@ let bdays = ['10-17', '05-19', '20-19']
 bdays = bdays.map((data) => (data.replace("-", "/")))
 console.log(bdays)
 
-let nilai1 = [1, 2, 3, 4, 5]
+let nilai1 = [1, 2, 3, 4, 5, 6]
 // jawaban no 5
-let reducer = (accumulator, currentValue) => accumulator + currentValue;
-console.log(nilai1.reduce(reducer));
+nilai1 = nilai1.map((data) => (data * 2))
+console.log(nilai1)
 
 let arr = [1.5, 2.56, 5.1, 12.33]
 // jawaban no 6
 arr = arr.map((data) => (Math.ceil(data)))
 console.log(arr)
-
-// var filterValue = [-4,3,2,-21,1]
-// filterValue = filterValue.filter(data => data > 0)
-// console.log(filterValue)
