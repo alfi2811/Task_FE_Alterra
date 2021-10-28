@@ -1,68 +1,54 @@
-console.log("========== No 1 ==========")
-let nilai1 = [1,2,3,4,5]
-let nilai2 = nilai1.reduce((accum, currVal) => accum += currVal, 0)
-console.log(nilai2)
+var _ = require("lodash");
 
-console.log("========== No 2 ==========")
-var filterValue = [-4,3,2,-21,1]
-var newFilterValue = filterValue.filter((num) => num > 0)
-console.log(newFilterValue)
+const anggota_kelas = ["budi", "sita", "ayu", "rena", "omen"]
+let mengumpulkan_tugas = ["rena", "omen"]
+console.log("=========== No 1 ===========")
+console.log("No 1a")
+console.log(_.difference(anggota_kelas, mengumpulkan_tugas))
+console.log("No 1b")
+console.log(_.chunk(anggota_kelas, 2))
+console.log("No 1c")
+console.log(_.join(anggota_kelas, '-'))
+console.log("No 1d")
+console.log(_.tail(anggota_kelas))
+console.log("No 1e")
+console.log(_.reverse(anggota_kelas))
 
-console.log("========== No 3 ==========")
-var data = [
-  {name: 'daniel', age: 45},
-  {name: 'john', age: 30},
-  {name: 'robert', age: null},
-  {name: 'jen', age: undefined},
-  {name: null, age: undefined},
-]
-var filterData = data.filter((data) => data.name && data.age)
-console.log(filterData)
-
-console.log("========== No 4 ==========")
-const konfersiMenit = (number) => {
-  let hours = Math.floor(number / 60)
-  let minutes = number % 60
-  minutes = minutes < 10? '0' + minutes: minutes
-
-  return hours + ':' + minutes
-}
-console.log(konfersiMenit(88)) // 1:28
-console.log(konfersiMenit(53)) // 0:53
-console.log(konfersiMenit(120)) // 2:00
-console.log(konfersiMenit(124)) // 2:04
-
-console.log("========== No 5 ==========")
-function inputHarusGenap(angka) {
-  if(angka % 2 != 0) {
-    throw new Error("Invalid")
-  }  
-  return "Valid"
+console.log("=========== No 3 ===========")
+class Orang {
+  constructor(nama, umur) {
+    this.nama = nama;
+    this.umur = umur;
+  }
+  perkenalanDiri() {
+    return `Halo, saya ${this.nama}. ${this.umur> 17? 'Saya sudah dewasa': 'Saya masih di bawah umur' }`
+  }
 }
 
-try {
-  console.log(inputHarusGenap(7))
-} catch(e) {
-  console.error(e.message)
+class Pelajar extends Orang {
+  constructor(nama, umur) {
+    super(nama, umur);
+    this.pekerjaan = "Siswa/Mahasiswa"
+  }
 }
 
-try {
-  console.log(inputHarusGenap(4))
-} catch(e) {
-  console.error(e.message)
+class Pekerja extends Orang {
+  constructor(nama, umur, pekerjaan) {
+    super(nama, umur);
+    this.pekerjaan = pekerjaan
+  }
+  perkenalanProfesi() {
+    return `Hi, Saya seorang ${this.pekerjaan}`
+  }
 }
 
-console.log("========== No 6 ==========")
-function perkalianUnik(arr) {
-  arr = arr.map((data, index) => {    
-    let tmp = arr.filter((dt, idx) => dt !== data || index !== idx )
-    tmp = tmp.reduce((acc, curr) => acc *= curr, 1)
-    return tmp
-  })
-  return arr
-}
-console.log(perkalianUnik([2,4,6]))
-console.log(perkalianUnik([1,2,3,4,5]))
-console.log(perkalianUnik([1,4,3,2,5]))
-console.log(perkalianUnik([1,3,3,1]))
-console.log(perkalianUnik([2,1,8,10,2]))
+const ana = new Orang('Ana', 10);
+const ini = new Pelajar('Ini', 18);
+const budi = new Pekerja('Budi', 20, 'Koki');
+
+console.log(ana.perkenalanDiri());
+console.log(ini.perkenalanDiri());
+console.log(ini.pekerjaan);
+console.log(budi.perkenalanDiri());
+console.log(budi.perkenalanProfesi());
+console.log(budi.pekerjaan);
