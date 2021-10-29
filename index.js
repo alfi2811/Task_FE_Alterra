@@ -31,9 +31,9 @@ let a = "DDUUDDUDUUUD"
 let b = "UDDDUDUU"
 let c = "DUDUUUUUUUUDUDDUUDUUDDDUUDDDDDUUDUUUUDDDUUUUUUUDDUDUDUUUDDDDUUDDDUDDDDUUDDUDDUUUDUUUDUUDUDUDDDDDDDDD"
 
-console.log("Jumlah Lembah = ", countValley(a))
-console.log("Jumlah Lembah = ", countValley(b))
-console.log("Jumlah Lembah = ", countValley(c))
+console.log("Jumlah Lembah = ", countValley(_.split(a, '')))
+console.log("Jumlah Lembah = ", countValley(_.split(b, '')))
+console.log("Jumlah Lembah = ", countValley(_.split(c, '')))
 
 
 console.log("=========== No 3 ===========")
