@@ -14,6 +14,28 @@ console.log(_.tail(anggota_kelas))
 console.log("No 1e")
 console.log(_.reverse(anggota_kelas))
 
+console.log("=========== No 2 ===========")
+const countValley = (arr) => {
+  let curr = 0, sum = 0, i = 0;
+  do {
+    let tmp = curr
+    if(arr[i] === "D") curr -= 1
+    else curr += 1    
+    if (curr === 0 && tmp <= 0) sum++
+    i++
+  } while(i < arr.length);  
+  return sum
+}
+
+let a = "DDUUDDUDUUUD"
+let b = "UDDDUDUU"
+let c = "DUDUUUUUUUUDUDDUUDUUDDDUUDDDDDUUDUUUUDDDUUUUUUUDDUDUDUUUDDDDUUDDDUDDDDUUDDUDDUUUDUUUDUUDUDUDDDDDDDDD"
+
+console.log("Jumlah Lembah = ", countValley(a))
+console.log("Jumlah Lembah = ", countValley(b))
+console.log("Jumlah Lembah = ", countValley(c))
+
+
 console.log("=========== No 3 ===========")
 class Orang {
   constructor(nama, umur) {
