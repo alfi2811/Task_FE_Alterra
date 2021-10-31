@@ -13,24 +13,36 @@
     <div class="message__card d-flex flex-column justify-content-between">
       <div class="message__card-info">
         <div class="message__card-info-data d-flex">
-          <p>Full Name &emsp;&emsp;&emsp; :</p>
-          <p>&emsp;Mike Wazowski</p>
+          <label>
+            <span>Full Name</span>
+            <span>:</span>
+          </label>
+          <p id="fullname" class="ms-2">Mike Wazowski</p>
         </div>
         <div class="message__card-info-data d-flex">
-          <p>Email Address &emsp; :</p>
-          <p>&emsp;Mike Wazowski</p>
+          <label>
+            <span>Email Address</span>
+            <span>:</span>
+          </label>          
+          <p id="email" class="ms-2">Mike Wazowski</p>
         </div>
-        <div class="message__card-info-data d-flex">
-          <p>Phone Number &emsp; :</p>
-          <p>&emsp;08120282112</p>
+        <div class="message__card-info-data d-flex">          
+          <label>
+            <span>Phone Number</span>
+            <span>:</span>
+          </label>
+          <p id="phone" class="ms-2">08120282112</p>
         </div>
-        <div class="message__card-info-data d-flex">
-          <p>Nationality &emsp;&emsp;&emsp; :</p>
-          <p>&emsp;Indonesian</p>
+        <div class="message__card-info-data d-flex">          
+          <label>
+            <span>Nationality</span>
+            <span>:</span>
+          </label>
+          <p id="nation" class="ms-2">Indonesian</p>
         </div>
 
         <div class="message__card-info-data mt-4">
-          <p> <i>
+          <p id="message"> <i>
             Hi Anne, I’m Mike from Monsters, Inc. I’ve seen your previous project and it was really amazing. And as you know our company are planning to build new mobile application. I hope you can join us to develope this application. We look forward to hearing from you and hope you’ll join our project!
           </i></p>                    
         </div>        
@@ -49,7 +61,11 @@
     </div>
   </div>  
   <script>
-    document.getElementById('output-form').innerHTML = sessionStorage.getItem("data");
+    let data = JSON.parse(sessionStorage.getItem("data"));
+
+    document.getElementById('fullname').innerHTML = data.fullname;
+    document.getElementById('email').innerHTML = data.email;
+    document.getElementById('phone').innerHTML = data.phone;
     console.log(sessionStorage.getItem("data"));
   </script>
 </body>

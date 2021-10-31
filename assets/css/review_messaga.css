@@ -47,7 +47,13 @@ h3 {
 }
 
 .message__card-info-data {
-  font-size: 1.6em;
+  font-size: 1.6em;  
+}
+
+.message__card-info-data label {
+  flex-basis: 22%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .message__card-img img {
