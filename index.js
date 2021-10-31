@@ -1,76 +1,54 @@
-var _ = require("lodash");
+const form  = document.getElementById('contact-form');
 
-const anggota_kelas = ["budi", "sita", "ayu", "rena", "omen"]
-let mengumpulkan_tugas = ["rena", "omen"]
-console.log("=========== No 1 ===========")
-console.log("No 1a")
-console.log(_.difference(anggota_kelas, mengumpulkan_tugas))
-console.log("No 1b")
-console.log(_.chunk(anggota_kelas, 2))
-console.log("No 1c")
-console.log(_.join(anggota_kelas, '-'))
-console.log("No 1d")
-console.log(_.tail(anggota_kelas))
-console.log("No 1e")
-console.log(_.reverse(anggota_kelas))
-
-console.log("=========== No 2 ===========")
-const countValley = (arr) => {
-  let curr = 0, sum = 0, i = 0;
-  do {
-    let tmp = curr
-    if(arr[i] === "D") curr -= 1
-    else curr += 1    
-    if (curr === 0 && tmp <= 0) sum++
-    i++
-  } while(i < arr.length);  
-  return sum
-}
-
-let a = "DDUUDDUDUUUD"
-let b = "UDDDUDUU"
-let c = "DUDUUUUUUUUDUDDUUDUUDDDUUDDDDDUUDUUUUDDDUUUUUUUDDUDUDUUUDDDDUUDDDUDDDDUUDDUDDUUUDUUUDUUDUDUDDDDDDDDD"
-
-console.log("Jumlah Lembah = ", countValley(_.split(a, '')))
-console.log("Jumlah Lembah = ", countValley(_.split(b, '')))
-console.log("Jumlah Lembah = ", countValley(_.split(c, '')))
-
-
-console.log("=========== No 3 ===========")
-class Orang {
-  constructor(nama, umur) {
-    this.nama = nama;
-    this.umur = umur;
-  }
-  perkenalanDiri() {
-    return `Halo, saya ${this.nama}. ${this.umur> 17? 'Saya sudah dewasa': 'Saya masih di bawah umur' }`
+function hasValue(input, message) {
+  let pClass = document.querySelectorAll(`.${input.id}.invalid-feedback`);
+  let idInput = document.getElementById(input.id);
+  if (input.value.trim() === "") {
+    console.log("input: ", input.id)
+    for (i = 0; i < pClass.length; i++) {
+      pClass[i].style.display = "block";
+      pClass[i].innerHTML = message;
+    }
+    idInput.classList.add("is-invalid");
+    
+		return false;
+	} else {
+    for (i = 0; i < pClass.length; i++) {
+      pClass[i].style.display = "none";
+    }    
+    idInput.classList.remove("is-invalid");
+    return true;
   }
 }
 
-class Pelajar extends Orang {
-  constructor(nama, umur) {
-    super(nama, umur);
-    this.pekerjaan = "Siswa/Mahasiswa"
+function validateConfirm(input, confirmInput, requiredMsg, invalidMsg) {	
+	if (!hasValue(input, requiredMsg)) {
+		return false;
+	}
+	
+  if(input.value !== confirmInput.value) {
+    return alert(invalidMsg)
   }
+	
+	return true;
 }
 
-class Pekerja extends Orang {
-  constructor(nama, umur, pekerjaan) {
-    super(nama, umur);
-    this.pekerjaan = pekerjaan
-  }
-  perkenalanProfesi() {
-    return `Hi, Saya seorang ${this.pekerjaan}`
-  }
-}
+form.addEventListener('submit', (event) => {  
+  event.preventDefault();
+  console.log("masuk")
+  let fullnameValid = hasValue(form.elements['fullname'], "Full name cannot be empty")  
+  let emailValid = hasValue(form.elements['email'], "Email address cannot be empty")    
+  let phoneNumValid = hasValue(form.elements['phone'], "Phone number cannot be empty")
 
-const ana = new Orang('Ana', 10);
-const ini = new Pelajar('Ini', 18);
-const budi = new Pekerja('Budi', 20, 'Koki');
+  if(fullnameValid && phoneNumValid && emailValid) {
+    alert('Registration Successfull');
+    let formData = {
+      'fullname': form.elements['fullname'].value,
+      'email': form.elements['email'].value,
+      'phone': form.elements['phone'].value,
+    }
 
-console.log(ana.perkenalanDiri());
-console.log(ini.perkenalanDiri());
-console.log(ini.pekerjaan);
-console.log(budi.perkenalanDiri());
-console.log(budi.perkenalanProfesi());
-console.log(budi.pekerjaan);
+    sessionStorage.data = JSON.stringify(formData);
+    window.location = "review_message.html";
+  }
+});

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+
+p, h3, label {
+  margin: 0;
+  color: #19345E;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+.message {    
+  background: linear-gradient(180deg, #ffffff 70%, #EDF6FF 30%);
+  height: 100vh;  
+  width: 100%;
+  font-size: 10px;
+  position: relative;
+}
+
+
+.message__card {
+  background-color: #ffffff;
+  border: 1px solid #CCD7EB;
+  border-radius: 10px;
+  width: 50%;  
+  padding: 4em;
+  position: relative;
+}
+
+.message__card-image {
+  position: absolute;
+  width: 14vmin;
+  left: -10%;
+  bottom: -10%;
+}
+
+.message__card-image img {
+  width: 100%;
+}
+
+.message__card-info-data {
+  font-size: 1.6em;
+}
+
+.message__card-img img {
+  width: 100%;
+}
+
+.message__card-footer {
+  margin-top: 40px;
+}
+
+.message__card-footer hr {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.message__card-footer p {
+  font-size: 2em;
+}
+
+.message__card-footer .btn {
+  background-color: #F47522;
+  color: white;
+  border-radius: 20px;
+}
+
+@media (max-width: 992px) {
+  .message__card {    
+    width: 70%;    
+  }
+}
+
+@media (max-width: 576px) {
+  .message {        
+    font-size: 8px;    
+  }
+  .message__card {    
+    width: 95%;    
+  }
+}
