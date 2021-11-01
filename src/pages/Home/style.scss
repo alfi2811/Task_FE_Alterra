@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+body {
+  font-size: 16px;
+}
+
+p, h1, h4 {
+  margin: 0;
+}
+
+.nav-link {
+  color: hsla(217, 58%, 23%, 1) !important;
+  font-weight: 500;
+  font-size: 0.875em;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: #F47522 !important;
+}
+
+.navbar .logo-brand {
+  width: 100px;
+}
+
+.profile {  
+  background: url(./../../assets/images/bg-img.png);
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 100px;
+  min-height: 100vh;
+}
+
+.profile__ava {
+  width: 400px;
+}
+
+.profile__ava img {
+  width: 100%;
+}
+
+.profile__desc {
+  color: hsla(217, 58%, 23%, 1);
+  text-align: center;
+}
+
+.profile__desc p {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.profile__desc h1 {
+  font-weight: bold;
+  font-size: 5.3125em;  
+}
+
+.profile__desc h4 {
+  font-weight: bold; 
+  font-size: 2.18em;  
+  margin-top: 0.5em;
+}
+
+.profile__desc .btn {
+  background-color: #F47522;
+  color: white;
+  border-radius: 20px;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .profile__desc {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+  .profile__ava {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-link {    
+    font-size: 1.25em;
+  }
+}
