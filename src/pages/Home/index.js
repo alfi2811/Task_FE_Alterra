@@ -6,13 +6,13 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
   return (
-    <>
+    <div className="p-home">
       <Navbar />
-      <main className="profile py-5 flex-column flex-lg-row">
-        <div className="profile__ava">
+      <main className="p-home__profile py-5 flex-column flex-lg-row">
+        <div className="p-home__profile-ava">
           <img src={profile} alt="ava" className="rounded-circle" />
         </div>
-        <div className="profile__desc ms-lg-5 mt-4 mt-lg-0 ">
+        <div className="p-home__profile-desc ms-lg-5 mt-4 mt-lg-0 ">
           <p>Hi, my name is</p>
           <h1>Anne Sullivan</h1>
           <h4>I build things for the web</h4>
@@ -23,7 +23,7 @@ const Home = () => {
           </Link>
         </div>
       </main>
-    </>
+    </div>
   )
 }
 

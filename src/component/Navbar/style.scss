@@ -1,7 +1,7 @@
 .nav-link {
   color: hsla(217, 58%, 23%, 1) !important;
   font-weight: 500;
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 
 .nav-link.active, .nav-link:hover {
@@ -16,23 +16,11 @@
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
-  }
-  .profile__desc {
-    text-align: left;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 12px;
-  }
-  .profile__ava {
-    width: 60vw;
-  }
+  }  
 }
 
 @media (max-width: 992px) {
   .nav-link {    
-    font-size: 1.25em;
+    font-size: 1.25rem;
   }
 }
