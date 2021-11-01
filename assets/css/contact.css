@@ -37,7 +37,8 @@ h3 {
 }
 
 .contact__content {
-  flex-basis: 60%;
+  flex-basis: 60%;  
+  overflow-y: auto;
 }
 
 .contact__content-form label {
