@@ -35,7 +35,7 @@ function validateConfirm(input, confirmInput, requiredMsg, invalidMsg) {
 
 form.addEventListener('submit', (event) => {  
   event.preventDefault();
-  console.log("masuk")
+  console.log("nation",form.elements['nation'].value)
   let fullnameValid = hasValue(form.elements['fullname'], "Full name cannot be empty")  
   let emailValid = hasValue(form.elements['email'], "Email address cannot be empty")    
   let phoneNumValid = hasValue(form.elements['phone'], "Phone number cannot be empty")
@@ -46,6 +46,8 @@ form.addEventListener('submit', (event) => {
       'fullname': form.elements['fullname'].value,
       'email': form.elements['email'].value,
       'phone': form.elements['phone'].value,
+      'nation': form.elements['nation'].value,
+      'message': form.elements['message'].value,
     }
 
     sessionStorage.data = JSON.stringify(formData);
