@@ -2,10 +2,9 @@
   color: hsla(217, 58%, 23%, 1) !important;
   font-weight: 500;
   font-size: 0.875rem;
-}
-
-.nav-link.active, .nav-link:hover {
-  color: #F47522 !important;
+  &.active, &:hover {
+    color: #F47522 !important;
+  }
 }
 
 .navbar .logo-brand {

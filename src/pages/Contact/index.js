@@ -4,14 +4,14 @@ import './style.scss'
 
 const Contact = () => {
   return (
-    <div class="contact flex-column flex-lg-row flex-md-row">
-      <div class="contact__cover d-flex justify-content-center align-items-center">
-        <div class="contact__cover-img">
+    <div class="p-contact flex-column flex-lg-row flex-md-row">
+      <div class="p-contact__cover d-flex justify-content-center align-items-center">
+        <div class="p-contact__cover-img">
           <img src={logo} alt="" />
         </div>
       </div>
-      <div class="contact__content d-flex justify-content-center align-items-center my-md-0 py-4">
-        <div class="contact__content-form col-lg-7 col-9">
+      <div class="p-contact__content d-flex justify-content-center align-items-center my-md-0 py-4">
+        <div class="p-contact__content-form col-lg-7 col-9">
           <h3 class="mb-3">Contact Us</h3>
           <form action="" id="contact-form" method="post">
             <div class="form-group mb-3">

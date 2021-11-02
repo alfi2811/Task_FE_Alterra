@@ -12,45 +12,41 @@ p, h3, label {
   color: #19345E;
 }
 
-h3 {
-  font-size: 28px;
-}
 
-.contact {
+.p-contact {
   display: flex;
   min-height: 100vh;
-}
-
-.contact__cover {
-  background: linear-gradient(0deg, rgba(25, 52, 94, 0.65), rgba(25, 52, 94, 0.65)), url(../../assets/images/charles-rRWiVQzLm7k-unsplash.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  flex-basis: 40%;  
-}
-
-.contact__cover-img {
-  width: 50%;
-}
-
-.contact__cover-img img {
-  width: 100%;
-}
-
-.contact__content {
-  flex-basis: 60%;  
-  overflow-y: auto;
-}
-
-.contact__content-form label {
-  font-size: 20px;
-}
-
-select.form-control { -webkit-appearance: menulist; }
-
-.contact__content-form .btn {
-  background-color: #F47522;
-  color: white;
-  border-radius: 20px;
+  font-size: 16px;
+  h3 {
+    font-size: 1.75em;
+  }
+  &__cover {
+    background: linear-gradient(0deg, rgba(25, 52, 94, 0.65), rgba(25, 52, 94, 0.65)), url(../../assets/images/charles-rRWiVQzLm7k-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-basis: 40%;  
+    &-img {
+      width: 50%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &__content {
+    flex-basis: 60%;  
+    overflow-y: auto;
+    &-form {
+      label {
+        font-size: 20px;
+      }
+      .btn {
+        background-color: #F47522;
+        color: white;
+        border-radius: 20px;
+      }
+    }
+    select.form-control { -webkit-appearance: menulist; }
+  }
 }
 
 @media (max-width: 992px) {
