@@ -118,7 +118,7 @@ class Table extends Component {
           <div class="mb-3">
             <label for="jk" class="form-label">
               Jenis Kelamin
-            </label>
+            </label> 
             <input
               type="text"
               class="form-control"
