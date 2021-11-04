@@ -41,15 +41,28 @@ class Todo extends Component {
     this.setState({
       addItem: { ...this.state.addItem, [e.target.name]: e.target.value },
     });
+
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    let newData = {
-      ...this.state.addItem,
-      id: Math.floor(Math.random() * 100) + 1,
-    };
-    this.setState({
-      data: [...this.state.data, newData],
+    let { id } = this.state.addItem
+    let find = this.state.data.find((dt) => dt.id === id)        
+    if(find) {
+      this.setState(prevState => ({
+        data: prevState.data.map(
+          dt => dt.id === id? this.state.addItem : dt
+        )    
+      }))
+    } else {
+      let newData = {
+        ...this.state.addItem,
+        id: Math.floor(Math.random() * 100) + 1,
+      };
+      this.setState({
+        data: [...this.state.data, newData],        
+      });
+    }
+    this.setState({      
       addItem: {
         id: 0,
         title: "",
@@ -58,12 +71,29 @@ class Todo extends Component {
     });
   };
 
+  handleDelete = (id) => {    
+    this.setState({
+      data: this.state.data.filter((data) => data.id !== id),
+    });
+  }
+  handleEdit = (dt) => {
+    this.setState({    
+      addItem: {
+        id: dt.id,
+        title: dt.title,
+        completed: dt.completed,
+      },
+    });
+  }
+
   render() {
     return (
       <div className="p-todo">
-        <h4>To Do App</h4>
+        <div className="p-todo__title">
+          <h2 className="text-gradient">todos</h2>      
+        </div>
         <hr/>        
-        <div className="p-todo__content container">
+        <div className="p-todo__content container mt-5">
           <form onSubmit={this.handleSubmit}>
             <div class="input-group mb-3">
               <input 
@@ -75,10 +105,10 @@ class Todo extends Component {
                 value={this.state.addItem.title}                
                 onChange={(e) => this.changeValue(e)}
               />
-              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
+              <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
             </div>
           </form>
-          <div className="p-todo__list">
+          <div className="p-todo__list mt-5">
             {
               this.state.data.map((dt) => (            
                 <div className="p-todo__list-item">
@@ -88,7 +118,10 @@ class Todo extends Component {
                       {dt.title}
                     </label>
                   </div>
-                  <span>Delete</span>
+                  <div className="p-todo__list-item-action">
+                    <span onClick={() => this.handleEdit(dt)}>Edit</span>
+                    <span onClick={() => this.handleDelete(dt.id)}>Delete</span>
+                  </div>
                 </div>
               ))
             }
