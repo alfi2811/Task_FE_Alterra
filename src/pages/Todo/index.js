@@ -46,10 +46,7 @@ const Todo = () => {
         ...formData,
         id: Math.floor(Math.random() * 100) + 1,
       };
-      setTodoList([...todoList, newData])
-      // this.setState({
-      //   todoList: [...todoList, newData],        
-      // });
+      setTodoList([...todoList, newData])      
     }
     setFormData({
       id: 0,
