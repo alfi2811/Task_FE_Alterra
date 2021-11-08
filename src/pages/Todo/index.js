@@ -73,26 +73,26 @@ const Todo = () => {
       <hr/>        
       <div className="p-todo__content container mt-5">
         <form onSubmit={handleSubmit}>
-          <div class="input-group mb-3">
+          <div className="input-group mb-3">
             <input 
               type="text" 
-              class="form-control" 
+              className="form-control" 
               placeholder="Add Your To Do" 
               id="title"
               name="title"
               value={formData.title}                
               onChange={(e) => changeValue(e)}
             />
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+            <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
           </div>
         </form>
         <div className="p-todo__list mt-5">
           {
             todoList.map((dt) => (            
               <div className="p-todo__list-item">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" checked={dt.completed} onChange={() => handleCheck(dt.id)} />
-                  <label class={`form-check-label ${dt.completed? 'completed':''} `} for="flexCheckDefault">
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" checked={dt.completed} onChange={() => handleCheck(dt.id)} />
+                  <label className={`form-check-label ${dt.completed? 'completed':''} `} htmlFor="flexCheckDefault">
                     {dt.title}
                   </label>
                 </div>

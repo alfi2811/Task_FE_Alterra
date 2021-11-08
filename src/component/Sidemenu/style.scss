@@ -1,0 +1,49 @@
+.o-sidemenu {
+  background-color: #3a8b8c;
+  height: 100%;  
+  font-size: 16px;  
+  left: -100px;  
+  transform: translateX(-120%);  
+  transition: all 1s ease-out;
+  z-index: 2;  
+  &.show {
+    -webkit-animation: slide 0.5s forwards;  
+    animation: slide 0.5s forwards;   
+  }
+  &.hide {
+    -webkit-animation: slide-out 0.5s forwards;  
+    animation: slide-out 0.5s forwards;   
+  }
+  &__icon {
+    cursor: pointer;
+  }
+  &__list {
+    margin-top: 4.5em;    
+    list-style: none;
+    padding: 0;
+    li {
+      margin-bottom: 20px;
+      font-weight: bold;      
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #69ebc9;      
+    }
+  }
+  &__closed {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    &.open {
+      z-index: -1;
+    }    
+  }
+}
+
+@keyframes slide {
+  from{ transform: translateX(-120%);}
+  to{ transform: translateX(0px);}
+}
+@keyframes slide-out {
+  from{ transform: translateX(0%);}
+  to{ transform: translateX(-120%);}
+}

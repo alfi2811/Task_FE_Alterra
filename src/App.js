@@ -1,15 +1,23 @@
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import About from "./pages/About";
+import AboutApp from "./pages/About/App";
+import AboutAuthor from "./pages/About/Author";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import Todo from "./pages/Todo";
 
 function App() {
   return (
     <Router>        
       <Switch>
-        <Route exact path="/" component={Todo} />							
-        <Route exact path="/home" component={Home} />							
+        <Route exact path="/" component={Home} />							
+        <Route exact path="/todo" component={Todo} />							
+        <Route exact path="/about" component={About} />							
+        <Route exact path="/about/about-app" component={AboutApp} />							
+        <Route exact path="/about/about-author" component={AboutAuthor} />							
         <Route exact path="/contact" component={Contact} />							        
+        <Route component={NotFound} />							        
       </Switch>
     </Router>
   );

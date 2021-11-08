@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.scss';
+import 'animate.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(

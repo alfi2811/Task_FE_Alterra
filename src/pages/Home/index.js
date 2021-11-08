@@ -1,14 +1,21 @@
 import React from 'react'
-import Navbar from '../../component/Navbar'
-import profile from './../../assets/images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg'
+// import Navbar from '../../component/Navbar'
+// import profile from './../../assets/images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg'
+// import {Link} from "react-router-dom";
 import './style.scss'
-import {Link} from "react-router-dom";
+import Sidemenu from '../../component/Sidemenu';
+import Todo from '../Todo';
 
 const Home = () => {
   return (
     <div className="p-home">
-      <Navbar />
-      <main className="p-home__profile py-5 flex-column flex-lg-row">
+      <div className="p-home__menu">
+        <Sidemenu />
+      </div>
+      <div className="p-home__todo">
+        <Todo />
+      </div>
+      {/* <main className="p-home__profile py-5 flex-column flex-lg-row">
         <div className="p-home__profile-ava">
           <img src={profile} alt="ava" className="rounded-circle" />
         </div>
@@ -22,7 +29,7 @@ const Home = () => {
             </div>            
           </Link>
         </div>
-      </main>
+      </main> */}
     </div>
   )
 }

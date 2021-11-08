@@ -1,0 +1,25 @@
+.t-about {
+  font-size: 16px;
+  display: flex;
+  margin-top: 2em;
+  &__tabs {
+    flex-basis: 25%;    
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: 2em;        
+        color: rgb(197, 197, 197);
+        font-weight: bold;
+        cursor: pointer;        
+      }
+      .active {
+        color: #000;
+      }
+    }
+
+  }
+  &__content {
+    flex-basis: 75%;
+  }
+}

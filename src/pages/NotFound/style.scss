@@ -1,0 +1,14 @@
+.p-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 30vw;
+  }
+  .btn {
+    background-color: #F47522;
+    color: white;
+    border-radius: 20px;
+  }
+}
