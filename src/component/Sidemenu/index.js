@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { IoClose, IoMenu } from "react-icons/io5";
 import { useHistory, useLocation } from 'react-router-dom';
 import "./style.scss";
 
 const Sidemenu = () => {
   const [show, setShow] = useState(false)  
+  const elementRef = useRef();
   let history = useHistory()
   const address = useLocation()
   const menus = [
@@ -18,13 +19,8 @@ const Sidemenu = () => {
     },    
   ]
   const handleShow = () => {    
-    if(show) {      
-      console.log("masu")
-      document.getElementById("coba").classList.add('hide')
-    } else {
-      document.getElementById("coba").classList.remove('hide')
-      document.getElementById("coba").classList.add('show')
-    }
+    const divElement = elementRef.current;    
+    divElement.className = show? 'o-sidemenu p-4 hide' : 'o-sidemenu p-4 show'        
     setShow(!show);
   }
 
@@ -37,14 +33,14 @@ const Sidemenu = () => {
   }  
   return (  
     <>          
-      <div id="coba" className={`o-sidemenu p-4`}>
+      <div id="coba" ref={elementRef} className={`o-sidemenu p-4`}>
         <div className="o-sidemenu__icon">    
           <IoClose size="3em" color="white" onClick={() => handleShow()} />
         </div>
         <ul className="o-sidemenu__list">
           {
-            menus.map((data, key) => (
-              <li key={key} onClick={() => goToUrl(data.url)}>
+            menus.map((data, idx) => (
+              <li key={idx} onClick={() => goToUrl(data.url)}>
                 {data.title}                
               </li>
             ))

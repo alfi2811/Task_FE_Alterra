@@ -89,7 +89,7 @@ const Todo = () => {
         <div className="p-todo__list mt-5">
           {
             todoList.map((dt) => (            
-              <div className="p-todo__list-item">
+              <div className="p-todo__list-item" key={dt.id}>
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" checked={dt.completed} onChange={() => handleCheck(dt.id)} />
                   <label className={`form-check-label ${dt.completed? 'completed':''} `} htmlFor="flexCheckDefault">
