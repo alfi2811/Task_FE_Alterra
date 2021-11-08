@@ -5,6 +5,7 @@ import AboutAuthor from "./pages/About/Author";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Registration from "./pages/Registration";
 import Todo from "./pages/Todo";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/about/about-app" component={AboutApp} />							
         <Route exact path="/about/about-author" component={AboutAuthor} />							
         <Route exact path="/contact" component={Contact} />							        
+        <Route exact path="/register" component={Registration} />							        
         <Route component={NotFound} />							        
       </Switch>
     </Router>
