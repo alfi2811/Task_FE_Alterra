@@ -1,5 +1,6 @@
-# Getting Started with Create React App
+# Task Frontend Developement Alterra Academy
 
+This project was build for fulfill task daily from Frontend Development course held by Alterra Academy that partnership with Kampus Merdeka Program.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
