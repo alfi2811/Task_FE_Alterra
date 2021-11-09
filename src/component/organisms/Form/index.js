@@ -67,21 +67,19 @@ const Form = () => {
         alert('Data Pendaftar Tidak Sesuai')
       } else {
         alert(`Data Pendaftar ${data.nama} Berhasil Diterima`)
-        resetData()
-        console.log(data)
+        resetData()     
       }
     }    
   }  
-  console.log(data)
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-3">
-          <label htmlFor="fullname">Full Name</label>
+          <label htmlFor="fullname">Full Name <span className="text-danger">*</span></label>
           <input
             type="text"
-            className="form-control form-control-sm"
+            className={`form-control form-control-sm ${!isEmpty(errMsg.name)? 'is-invalid':''}`}
             id="nama"
             name="nama"
             placeholder="Your Full Name Here..."
@@ -92,10 +90,10 @@ const Form = () => {
           <div className="fullname invalid-feedback"></div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">Email Address <span className="text-danger">*</span></label>
           <input
             type="email"
-            className="form-control form-control-sm"
+            className={`form-control form-control-sm ${!isEmpty(errMsg.email)? 'is-invalid':''}`}
             id="email"
             name="email"
             value={data.email}
@@ -106,10 +104,10 @@ const Form = () => {
           <div className="email invalid-feedback"></div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="phone">No Handphone <span className="text-danger">*</span></label>
           <input
             type="text"
-            className="form-control form-control-sm"
+            className={`form-control form-control-sm ${!isEmpty(errMsg.noHandphone)? 'is-invalid':''}`}
             id="noHandphone"
             name="noHandphone"
             value={data.noHandphone}
@@ -120,7 +118,7 @@ const Form = () => {
           <div className="phone invalid-feedback"></div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="phone">Latar Belakang Pendidikan</label>
+          <label htmlFor="phone">Latar Belakang Pendidikan <span className="text-danger">*</span></label>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -149,7 +147,7 @@ const Form = () => {
           </div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="nation">Kelas Coding yang Dipilih</label>
+          <label htmlFor="nation">Kelas Coding yang Dipilih <span className="text-danger">*</span></label>
           <select
             className="form-control form-control-sm custom-select"
             id="kelas"
@@ -165,7 +163,7 @@ const Form = () => {
         </div>
         <div className="form-group mb-3">
           <label htmlFor="formFileSm" className="form-label">
-            Foto Surat Kesungguhan
+            Foto Surat Kesungguhan <span className="text-danger">*</span>
           </label>
           <input
             className="form-control form-control-sm"
@@ -201,9 +199,9 @@ const Form = () => {
         <button type="submit" className="btn btn-submit mt-3 px-4 py-2">
           Submit
         </button>
-        <button className="btn btn-outline mt-3 px-4 py-2" onClick={resetData}>
+        <div className="btn btn-outline mt-3 px-4 py-2 ml-2" onClick={resetData}>
           Reset
-        </button>
+        </div>
       </form>
     </div>
   );

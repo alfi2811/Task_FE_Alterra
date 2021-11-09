@@ -18,8 +18,8 @@ const Sidemenu = () => {
       title: 'ABOUT'
     },    
     {
-      url: '/register',
-      title: 'REGISTRATION'
+      url: '/form',
+      title: 'FORM'
     },    
   ]
   const handleShow = () => {    
