@@ -9,12 +9,19 @@ h3 {
     background: linear-gradient(0deg, rgba(25, 52, 94, 0.65), rgba(25, 52, 94, 0.65)), url(../../assets/images/charles-rRWiVQzLm7k-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    flex-basis: 40%;  
+    flex-basis: 40%; 
+    position: relative; 
     &-img {
       width: 50%;
       img {
         width: 100%;
       }
+    }
+    &-icon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
     }
   }
   &__content {
@@ -27,7 +34,7 @@ h3 {
       .form-check label {
         font-size: 16px;
       }
-      .btn {
+      .btn-submit {
         background-color: #F47522;
         color: white;
         border-radius: 20px;

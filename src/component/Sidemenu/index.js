@@ -17,6 +17,10 @@ const Sidemenu = () => {
       url: '/about/about-app',
       title: 'ABOUT'
     },    
+    {
+      url: '/register',
+      title: 'REGISTRATION'
+    },    
   ]
   const handleShow = () => {    
     const divElement = elementRef.current;    
