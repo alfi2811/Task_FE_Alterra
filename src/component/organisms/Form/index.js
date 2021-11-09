@@ -76,7 +76,7 @@ const Form = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-3">
-          <label htmlFor="fullname">Full Name <span className="text-danger">*</span></label>
+          <label htmlFor="fullname">Nama Lengkap <span className="text-danger">*</span></label>
           <input
             type="text"
             className={`form-control form-control-sm ${!isEmpty(errMsg.name)? 'is-invalid':''}`}
@@ -90,7 +90,7 @@ const Form = () => {
           <div className="fullname invalid-feedback"></div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="email">Email Address <span className="text-danger">*</span></label>
+          <label htmlFor="email">Email <span className="text-danger">*</span></label>
           <input
             type="email"
             className={`form-control form-control-sm ${!isEmpty(errMsg.email)? 'is-invalid':''}`}
