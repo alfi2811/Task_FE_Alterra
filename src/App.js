@@ -7,21 +7,24 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Registration from "./pages/Registration";
 import Todo from "./pages/Todo";
-
+import { store } from './store' 
+import { Provider } from 'react-redux'
 function App() {
   return (
-    <Router>        
-      <Switch>
-        <Route exact path="/" component={Home} />							
-        <Route exact path="/todo" component={Todo} />							
-        <Route exact path="/about" component={About} />							
-        <Route exact path="/about/about-app" component={AboutApp} />							
-        <Route exact path="/about/about-author" component={AboutAuthor} />							
-        <Route exact path="/contact" component={Contact} />							        
-        <Route exact path="/form" component={Registration} />							        
-        <Route component={NotFound} />							        
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>        
+        <Switch>
+          <Route exact path="/" component={Home} />							
+          <Route exact path="/todo" component={Todo} />							
+          <Route exact path="/about" component={About} />							
+          <Route exact path="/about/about-app" component={AboutApp} />							
+          <Route exact path="/about/about-author" component={AboutAuthor} />							
+          <Route exact path="/contact" component={Contact} />							        
+          <Route exact path="/form" component={Registration} />							        
+          <Route component={NotFound} />							        
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
