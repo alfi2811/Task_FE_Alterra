@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// export const deleteItemAction = createAsyncThunk(
-//   'todoConfig/deleteItemAction',
-//   async ({items, id}, thunkAPI) => {
-//     console.log(items, id);
-//   }
-// )
-
 export const todoConfigSlice = createSlice({
   name: 'todoConfig',
   initialState: {    
@@ -26,7 +19,12 @@ export const todoConfigSlice = createSlice({
         title: "Setup Development Environment",
         completed: true,
       },
-    ]
+    ],
+    baseItem: {
+      id: 0,
+      title: "",
+      completed: false,
+    },
   },
   reducers: {
     addItem: (state, action) => {
@@ -40,25 +38,22 @@ export const todoConfigSlice = createSlice({
 
 export const {addItem, changeItem}= todoConfigSlice.actions;
 
-
-export const addItemAction = ({items, formData}) => {
-  return dispatch => {    
-    let newItem = [...items, formData]
+export const addItemAction = ({items, newData}) => {
+  return dispatch => {        
+    let newItem = [...items, newData]
     dispatch(changeItem(newItem))
   }
 }
 
 export const deleteItemAction = ({items, id}) => {
-  return dispatch => {
-    console.log(items, id)
+  return dispatch => {    
     let newItem = items.filter((data) => data.id !== id)
     dispatch(changeItem(newItem))
   }
 }
 
 export const checkItemAction = ({items, id}) => {
-  return dispatch => {
-    console.log(items, id)
+  return dispatch => {    
     let newItem = items.map(dt => dt.id === id? { ...dt, completed: !dt.completed }: dt)
     dispatch(changeItem(newItem))
   }
@@ -66,8 +61,7 @@ export const checkItemAction = ({items, id}) => {
 
 export const editItemAction = ({items, formData}) => {
   return dispatch => {
-    let { id } = formData
-    console.log(items, id)
+    let { id } = formData    
     let newItem = items.map(dt => dt.id === id? formData : dt)
     dispatch(changeItem(newItem))
   }
@@ -83,8 +77,7 @@ export const submitItemAction = ({items, formData}) => {
       let newData = {
         ...formData,
         id: Math.floor(Math.random() * 100) + 1,
-      };
-      console.log("masuk")
+      };      
       dispatch(addItemAction({items, newData}))        
     }
   }

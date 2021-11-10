@@ -9,7 +9,7 @@ import "./style.scss";
 
 const Todo = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.todoConfig.items);
+  const { items } = useSelector((state) => state.todoConfig);
   const [formData, setFormData] = useState({
     id: 0,
     title: "",
