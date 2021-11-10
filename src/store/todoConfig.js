@@ -26,17 +26,14 @@ export const todoConfigSlice = createSlice({
       completed: false,
     },
   },
-  reducers: {
-    addItem: (state, action) => {
-      state.items= [...state.items, action.payload]
-    },
-    changeItem: (state, action) => {
+  reducers: {    
+    changeItem: (state, action) => {            
       state.items= action.payload
     },
   },  
 })
 
-export const {addItem, changeItem}= todoConfigSlice.actions;
+export const {changeItem}= todoConfigSlice.actions;
 
 export const addItemAction = ({items, newData}) => {
   return dispatch => {        
