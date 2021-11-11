@@ -15,7 +15,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  todoConfig: todoConfigSlice.reducer,
+  todoConfig: todoConfigSlice.reducer, 
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
