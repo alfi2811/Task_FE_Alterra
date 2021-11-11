@@ -18,6 +18,17 @@ describe("when rendered", () => {
     expect(result.current.value).toEqual("Angga");
   });
 
+  it("change value onchange method", () => {
+    const { result } = renderHook(() => useInputValue("alfi"));
+
+    act(() =>
+      result.current.onChange({
+        target: { innerText: "Angga" },
+      })
+    );
+    expect(result.current.value).toEqual("Angga");
+  });
+
   it("update value and rerendered it", () => {
     const { result, rerender } = renderHook(({ text }) => useInputValue(text), {
       initialValue: { text: "Alfi" },
