@@ -35,17 +35,17 @@ const News = () => {
               articles?.map((article, key) => (
               <div className="p-news__body-content-list-post" key={key}>
                 <div className="p-news__body-content-list-post-thumbnail">
-                  <img src="https://placeimg.com/150/100/tech" alt="" />
+                  <img src={article.urlToImage} alt="" />
                 </div>
                 <div className="p-news__body-content-list-post-caption">
                   <h3>{article.title}</h3>
                   <p>
                     { article.description } 
-                    .. <a href={article.url} rel="noreferrer" target="_blank">Read More</a> 
+                    <a href={article.url} rel="noreferrer" target="_blank">Read More</a> 
                   </p>
                   <div className="p-news__body-content-list-post-caption-author">
-                    <span className="name">{article.source}</span>
-                    <span>{dateDiff(article.published_at)} ago</span>
+                    <span className="name">{article.author}</span>
+                    <span>{dateDiff(article.publishedAt)} ago</span>
                   </div>
                 </div>
               </div>            

@@ -11,11 +11,12 @@ export const put_data = (key, data) => ({
 export const get_news = () => {
 	return (dispatch) => {	  
 	  axios
-		// .get(`everything?domains=thenextweb.com&apiKey=${apiKey}`)
-    .get(`news?access_key=${apiKey}&sources=cnn,bbc&categories=technology&languages=en&sort=published_desc`)
-		.then((resp) => {				  
-      // dispatch(put_data('listArticles', resp.data.articles))
-      dispatch(put_data('listArticles', resp.data.data))
+		.get(`everything?domains=thenextweb.com&apiKey=${apiKey}`)
+    // .get(`news?access_key=${apiKey}&sources=cnn,bbc&categories=technology&languages=en&sort=published_desc`)
+    // .get(`items/scholarship_news?sort=-date`)
+		.then((resp) => {				        
+      dispatch(put_data('listArticles', resp.data.articles))
+      // dispatch(put_data('listArticles', resp.data.data))
 		})
 		.catch((err) => {
 		  console.log(err)
