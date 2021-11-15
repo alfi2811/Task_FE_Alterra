@@ -1,10 +1,10 @@
 import './App.css';
-import Home from './component/Home';
+import HomeHooks from './component/HomeHooks';
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <HomeHooks />
     </div>
   );
 }
