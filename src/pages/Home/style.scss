@@ -9,6 +9,12 @@
     align-items: center;
     padding: 10px 100px;
     min-height: 100vh;
+    position: relative;
+    &-clock {
+      position: absolute;
+      top: 2vh;
+      right: 1vw;
+    }
     &-ava {
       width: 400px;
       img {

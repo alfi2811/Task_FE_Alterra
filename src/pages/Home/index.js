@@ -3,6 +3,7 @@ import Navbar from '../../component/Navbar'
 import profile from './../../assets/images/matthew-hamilton-tNCH0sKSZbA-unsplash.jpg'
 import './style.scss'
 import {Link} from "react-router-dom";
+import Clock from '../../component/organisms/widgets/Clock';
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
         <div className="p-home__profile-ava">
           <img src={profile} alt="ava" className="rounded-circle" />
         </div>
-        <div className="p-home__profile-desc ms-lg-5 mt-4 mt-lg-0 ">
+        <div className="p-home__profile-desc ms-lg-5 mt-4 mt-lg-0 ">          
           <p>Hi, my name is</p>
           <h1>Anne Sullivan</h1>
           <h4>I build things for the web</h4>
@@ -21,6 +22,9 @@ const Home = () => {
               Get In Touch
             </div>            
           </Link>
+        </div>
+        <div className="p-home__profile-clock">
+          <Clock />
         </div>
       </main>
     </div>

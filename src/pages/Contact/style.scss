@@ -7,16 +7,14 @@
   font-family: 'Roboto';
 }
 
-p, h3, label {
-  margin: 0;
-  color: #19345E;
-}
-
-
 .p-contact {
   display: flex;
   min-height: 100vh;
   font-size: 16px;
+  p, h3, label {
+    margin: 0;
+    color: #19345E;
+  }
   h3 {
     font-size: 1.75em;
   }
@@ -39,7 +37,7 @@ p, h3, label {
       label {
         font-size: 20px;
       }
-      .btn {
+      .btn-submit {
         background-color: #F47522;
         color: white;
         border-radius: 20px;

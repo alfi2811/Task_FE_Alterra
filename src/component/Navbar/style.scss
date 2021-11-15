@@ -2,7 +2,9 @@
   color: hsla(217, 58%, 23%, 1) !important;
   font-weight: 500;
   font-size: 0.875rem;
+  cursor: pointer;  
   &.active, &:hover {
+    font-weight: bold;
     color: #F47522 !important;
   }
 }
