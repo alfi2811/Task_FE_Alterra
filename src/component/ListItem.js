@@ -7,6 +7,9 @@ const ListItem = (props) => {
       <td>{nama}</td>
       <td>{umur}</td>
       <td>{jenisKelamin}</td>
+      <td className="removeBorder" onClick={() => props.editPengunjung(id)}>
+        <button>Edit</button>
+      </td>
       <td className="removeBorder" onClick={() => props.hapusPengunjung(id)}>
         <button>Hapus</button>
       </td>
