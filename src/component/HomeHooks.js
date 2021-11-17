@@ -2,13 +2,14 @@
 import PassengerInput from "./PassengerInput";
 import ListPassenger from "./ListPassenger";
 import Header from "./Header";
+import SearchInput from "./SearchInput";
 import { gql, useQuery, useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import SearchInput from "./SearchInput";
+import spin from '../assets/images/loadingSpin.gif'
 
 const GET_PASSENGER = gql`
   query MyQuery2($id: Int_comparison_exp = {}) {
-    kampus_merdeka_anggota(where: {id: $id}) {
+    kampus_merdeka_anggota(where: {id: $id}, order_by: {id: asc}) {
       id
       jenisKelamin
       nama
@@ -52,7 +53,7 @@ const HomeHooks = () => {
     notifyOnNetworkStatusChange: true
   });
   const [insertPass, {loading: loadingInsert}] = useMutation(INSERT_PASSENGER, {refetchQueries: [GET_PASSENGER]})
-  const [deleteTodo, {loading: loadingDelete}] = useMutation(DELETE_PASSENGER, {refetchQueries: [GET_PASSENGER]})
+  const [deleteTodo, {loading: loadingDelete, error: errorDel }] = useMutation(DELETE_PASSENGER, {refetchQueries: [GET_PASSENGER]})
   const [updatePass, {loading: loadingUpdate}] = useMutation(UPDATE_PASSENGER, {refetchQueries: [GET_PASSENGER]})
   
   const [data, setData] = useState([]);
@@ -68,14 +69,12 @@ const HomeHooks = () => {
     if (errGetAllData) {      
       setErrQuery(errGetAllData?.message);
     }
-  }, [errGetAllData]);
+    if (errorDel) {      
+      setErrQuery(errorDel?.message);
+    }
+  }, [errGetAllData, errorDel]);
 
-  const tambahPengunjung = (newUser) => {
-    // const newData = {
-    //   id: uuidv4(),
-    //   ...newUser,
-    // };
-    // setData([...data, newData]);
+  const tambahPengunjung = (newUser) => {    
     insertPass({
       variables: {        
         nama: newUser.nama,
@@ -107,12 +106,9 @@ const HomeHooks = () => {
     })
   };
 
-  const editPengunjung = (id) => {
-    console.log("idd: ", id)
-    let find = data.find((item) => item.id === id)
-    // setData(data.filter((item) => item.id !== id));
+  const editPengunjung = (id) => {    
+    let find = data.find((item) => item.id === id)    
     if(find) {
-      console.log("find: ",find)
       setBaseInput({
         id: find.id,
         nama: find.nama,
@@ -123,14 +119,11 @@ const HomeHooks = () => {
     }    
   };
 
-  const handleSearch = (id) => {
-    console.log("id: ", id === "");
-    if (id === "") {
-      // setData(dataPengunjung?.kampus_merdeka_anggota);
+  const handleSearch = (id) => {    
+    if (id === "") {      
       refetch({ id: {}})
     } else {
-      refetch({ id: {_eq: id} })
-      // getAnggotaByID({ variables: { _eq: id } });
+      refetch({ id: {_eq: id} })      
     }
   };
 
@@ -139,7 +132,7 @@ const HomeHooks = () => {
       <Header />
       <SearchInput handleSearch={(id) => handleSearch(id)} />
       {loading || loadingInsert || loadingDelete || loadingUpdate ? (
-        <p>Loading....</p>      
+        <img src={spin} alt="spin" />
       ) : data?.length === 0 ? (
         <p>Data Not Found. Use other keyword</p>
       ) : (

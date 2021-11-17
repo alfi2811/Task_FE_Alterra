@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import "./Home.css"
 
 function PassengerInput(props) {
-  const [state, setState] = useState(props.baseInput)
-  console.log(props.baseInput)
+  const [state, setState] = useState(props.baseInput)  
   useEffect(() => {
     setState(props.baseInput)
   }, [props.baseInput])
@@ -19,18 +18,12 @@ function PassengerInput(props) {
       const umur = state.umur
       if (umur >= 75 || umur <= 12) {
         alert("Umur tidak sesuai")
-      } else {
-        // const newData = {
-        //   nama: state.nama,
-        //   umur: state.umur,
-        //   jenisKelamin: state.jenisKelamin,
-        // }
+      } else {        
         if(state.id) {
           props.updatePengunjung(state)      
         } else {
           props.tambahPengunjung(state)
-        }        
-        console.log(state)
+        }                
       }
     } else {
       alert("Data masih ada yang kosong")
