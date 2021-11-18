@@ -3,20 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  ApolloClient,
-  InMemoryCache,
+import {  
   ApolloProvider,  
 } from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: 'https://knowing-marten-25.hasura.app/v1/graphql',
-  cache: new InMemoryCache(),
-  headers: {
-    'x-hasura-admin-secret': 'bw1dwCUjwaxElD50a1qpVciRdENSznF6VzqOoM24nAk2CHlvit50IIPsPjSio5P4'
-  }
-});
-
+import client from './apollo-client';
 
 ReactDOM.render(
   <React.StrictMode>

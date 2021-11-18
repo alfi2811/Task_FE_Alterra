@@ -18,6 +18,17 @@ const GET_PASSENGER = gql`
   }
 `;
 
+const GET_PASSENGER_SUBSCRIPTION = gql`
+  subscription MySubscription($id: Int_comparison_exp = {}) {
+    kampus_merdeka_anggota(where: {id: $id}, order_by: {id: asc}) {
+      id
+      jenisKelamin
+      nama
+      umur
+    }
+  }
+`;
+
 const INSERT_PASSENGER = gql`
   mutation MyMutation2($jenisKelamin: String = "", $nama: String = "", $umur: Int!) {
     insert_kampus_merdeka_anggota(objects: {jenisKelamin: $jenisKelamin, nama: $nama, umur: $umur}) {
@@ -49,12 +60,33 @@ const HomeHooks = () => {
     jenisKelamin: "Pria",
     editing: true,
   }
-  const { data: dataPengunjung, loading, error: errGetAllData, refetch } = useQuery(GET_PASSENGER, {
+  
+  // option pertama subscription
+  // const [variableID, setVariableID] = useState({})  
+  // const { data: dataPengunjung, loading, error: errGetAllData } = useSubscription(GET_PASSENGER_SUBSCRIPTION, {
+  //   variables: {
+  //     id: variableID
+  //   },    
+  // })
+
+  // option kedua subscription
+  const { data: dataPengunjung, loading, error: errGetAllData, subscribeToMore, refetch } = useQuery(GET_PASSENGER, {
     notifyOnNetworkStatusChange: true
   });
-  const [insertPass, {loading: loadingInsert}] = useMutation(INSERT_PASSENGER, {refetchQueries: [GET_PASSENGER]})
-  const [deleteTodo, {loading: loadingDelete, error: errorDel }] = useMutation(DELETE_PASSENGER, {refetchQueries: [GET_PASSENGER]})
-  const [updatePass, {loading: loadingUpdate}] = useMutation(UPDATE_PASSENGER, {refetchQueries: [GET_PASSENGER]})
+  
+  useEffect(() => {    
+    subscribeToMore({
+      document: GET_PASSENGER_SUBSCRIPTION,
+      updateQuery: ( prev, { subscriptionData: { data } }) => {
+        return data
+      }
+    }) 
+    // eslint-disable-next-line
+  }, []) 
+
+  const [insertPass, {loading: loadingInsert}] = useMutation(INSERT_PASSENGER)
+  const [deleteTodo, {loading: loadingDelete, error: errorDel }] = useMutation(DELETE_PASSENGER)
+  const [updatePass, {loading: loadingUpdate}] = useMutation(UPDATE_PASSENGER)
   
   const [data, setData] = useState([]);
   const [baseInput, setBaseInput] = useState(baseForm);
@@ -120,10 +152,12 @@ const HomeHooks = () => {
   };
 
   const handleSearch = (id) => {    
-    if (id === "") {      
+    if (id === "") {            
+      // setVariableID({})
       refetch({ id: {}})
     } else {
-      refetch({ id: {_eq: id} })      
+      // setVariableID({_eq: id})      
+      refetch({ id: {_eq: id}})
     }
   };
 
